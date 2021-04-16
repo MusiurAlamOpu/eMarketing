@@ -7,6 +7,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import './ServiesCard.css';
 import { Button, CardActions } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -36,8 +37,8 @@ const Servieses = (props) => {
         <Button style={{border: '1px solid #ffbc02', borderRadius: '5px', color: '#ffbc02', fontWeight: '600'}} size="small" color="primary">
           {price}$
         </Button>
-        <Button style={{backgroundColor: '#ffbc02', borderRadius: '5px', color: 'black', fontWeight:'500', marginLeft: '65px'}} size="small" color="primary">
-          ORDER
+        <Button style={{backgroundColor: '#ffbc02', borderRadius: '5px',  marginLeft: '65px'}} size="small" color="primary">
+          <Link style={{color: 'black', fontWeight:'500', textDecoration: 'none'}} to="/customer">Book</Link>
         </Button>
       </CardActions>
     </Card>

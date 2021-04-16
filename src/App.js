@@ -33,18 +33,18 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <PrivateRoute path="/admin">
+          {/* <PrivateRoute path="/admin">
             <Admin />
           </PrivateRoute>
           <PrivateRoute path="/customer">
           <Customer/>
-          </PrivateRoute>
-          {/* <Route path="/admin">
+          </PrivateRoute> */}
+          <Route path="/admin">
             <Admin/>
           </Route>
           <Route path="/customer">
             <Customer/>
-          </Route> */}
+          </Route>
           <Route path="/logIn">
             <LogIn />
           </Route>

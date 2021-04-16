@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 const Reveiws = (props) => {
   const classes = useStyles();
   console.log(props.user);
-  const {name, description, imageUrl, rating } = props.user;
+  const {name, reviewText, imageURL, rating, email} = props.review;
   return (
     <Card
       style={{ borderRadius: "10px", margin: "1%"}}
@@ -25,15 +25,15 @@ const Reveiws = (props) => {
         <CardContent>
             <div style={{display:'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', height: '100px', padding: '1%', width: '98%'}}>
                 <div style={{width: '40%'}}>
-                    <img style={{width: '70px', borderRadius: '50%'}} src={imageUrl} alt=""></img>
+                    <img style={{width: '70px', borderRadius: '50%'}} src={imageURL} alt=""></img>
                 </div>
                 <div style={{width: '50%', marginLeft: '10%'}}>
                 <p style={{fontSize: '20px', color:'#fb8c00'}}>{name}</p>
                 </div>
             </div>
-          
-          <Typography style={{color: 'grey', height: '70px'}} variant="body2" color="textSecondary" component="p">
-            {description}
+          <Typography style={{color: 'grey', height: '70px', textAlign: 'center'}} variant="body2" color="textSecondary" component="p">
+          <span style={{color:'green'}}>{email}</span><br/>
+            {reviewText}
           </Typography>
           <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', height: '30px'}}>
             

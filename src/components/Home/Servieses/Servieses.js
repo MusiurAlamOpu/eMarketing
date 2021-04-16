@@ -19,11 +19,12 @@ const useStyles = makeStyles({
 });
 const Servieses = (props) => {
   const classes = useStyles();
-  const {price, id, title, description, imageUrl } = props.servies;
+  console.log(props.service);
+  const {price, id, title, description, imageURL } = props.service;
   return (
     <Card id="serviesCard" style={{borderRadius: '10px', margin: '2%', backgroundColor: '#f8fdff', border: 'none'}} className={classes.root}>
       <CardActionArea style={{backgroundColor: '#f8fdff', border: 'none'}}>
-        <CardMedia style={{backgroundColor: '#f8fdff', border: 'none'}} className={classes.media} image={imageUrl} title={id} />
+        <CardMedia style={{backgroundColor: '#f8fdff', border: 'none'}} className={classes.media} image={imageURL} title={id} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}

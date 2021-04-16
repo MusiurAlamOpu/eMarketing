@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Shared/Footer/Footer";
 import rocketLaunch from "./startingMax.png";
 import working from "./WorkingLight.png";
@@ -12,7 +12,27 @@ import { Link } from "react-router-dom";
 import Servieses from "./Servieses/Servieses";
 import Reveiws from "./Review/Reveiws";
 import ProjectCard from "./Projects/ProjectCard";
+// import axios from "axios";
 const Home = () => {
+  const [services, setServices] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  useEffect(()=>{
+    fetch("http://localhost:5055/addService")
+    .then(res => res.json())
+    .then(data => setServices(data))
+    .catch(error => {
+      console.log(error);
+    })
+  },[]);
+  useEffect(()=>{
+    fetch("http://localhost:5055/addReview")
+    .then(res => res.json())
+    .then(data => setReviews(data))
+    .catch(error => {
+      console.log(error);
+    })
+  },[]);
+  // console.log(typeof(services));
   // #e3f2fd lightblue
   return (
     <section id="body">
@@ -115,8 +135,8 @@ const Home = () => {
                 alignItems: "center",
               }}
             >
-              {fakeData.map((servies) => {
-                return <Servieses servies={servies}></Servieses>;
+              {services.map((service) => {
+                return <Servieses service={service}></Servieses>;
               })}
             </div>
           </div>
@@ -176,8 +196,8 @@ const Home = () => {
                 alignItems: "center",
               }}
             >
-              {fakeReview.map((user) => {
-                return <Reveiws user={user}></Reveiws>;
+              {reviews.map((review) => {
+                return <Reveiws review={review}></Reveiws>;
               })}
             </div>
           </div>

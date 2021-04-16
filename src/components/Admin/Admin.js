@@ -8,9 +8,9 @@ import OrderList from "./OrderList/OrderList";
 const Admin = () => {
   const [switchState, setSwitchState] = useState({
     orderList: false,
-    addService: false,
+    addService: true,
     makeAdmin: false,
-    manageService: true,
+    manageService: false,
   });
 
 //   const ButtonStyle = {

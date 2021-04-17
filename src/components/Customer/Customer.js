@@ -14,7 +14,7 @@ const Customer = () => {
     review: false,
   });
   const switchWorkplace = (props) => {
-    console.log(props);
+    // console.log(props);
     if (props === "book") {
       setSwitchState({
         book: true,

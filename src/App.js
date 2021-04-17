@@ -1,3 +1,4 @@
+import { ExpansionPanelDetails } from "@material-ui/core";
 import { createContext, useState } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
@@ -10,47 +11,60 @@ import LogIn from "./components/LogIn/LogIn";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import NavBar from "./components/Shared/NavBar/NavBar";
 
-
 export const UserContext = createContext();
-
+export const paymentContext = createContext();
+export const titleContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({isLoggedIn: false});
+  const [loggedInUser, setLoggedInUser] = useState({
+    name: "",
+    isLoggedIn: false,
+    imageUrl: "",
+    email: "",
+    isAdmin: false,
+    isUser: true,
+  });
+  const [paymentPaid, setPaymentPaid] = useState({ isPaid: false });
+  const [titleText, setTitleText] = useState({ title: "", price: null });
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/about-us">
-            <AboutUs />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          {/* <PrivateRoute path="/admin">
-            <Admin />
-          </PrivateRoute>
-          <PrivateRoute path="/customer">
-          <Customer/>
-          </PrivateRoute> */}
-          <Route path="/admin">
-            <Admin/>
-          </Route>
-          <Route path="/customer">
-            <Customer/>
-          </Route>
-          <Route path="/logIn">
-            <LogIn />
-          </Route>
-        </Switch>
-      </Router>
-      </UserContext.Provider>
+      <paymentContext.Provider value={[paymentPaid, setPaymentPaid]}>
+        <titleContext.Provider value={[titleText, setTitleText]}>
+          <Router>
+            <NavBar />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/about-us">
+                <AboutUs />
+              </Route>
+              <Route path="/contact">
+                <Contact />
+              </Route>
+              <PrivateRoute path="/admin">
+                <Admin />
+              </PrivateRoute>
+              <PrivateRoute path="/customer">
+                <Customer />
+              </PrivateRoute>
+              {/* <Route path="/admin">
+                <Admin />
+              </Route>
+              <Route path="/customer">
+                <Customer />
+              </Route> */}
+              <Route path="/logIn">
+                <LogIn />
+              </Route>
+            </Switch>
+          </Router>
+        </titleContext.Provider>
+      </paymentContext.Provider>
+    </UserContext.Provider>
   );
 }
 

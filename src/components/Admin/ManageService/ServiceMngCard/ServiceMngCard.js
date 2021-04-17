@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -9,56 +9,70 @@ import { Button, CardActions } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
-    width: 210,
+    width: 150,
   },
   media: {
-    height: 200,
+    height: 140,
   },
 });
 
-const ServiceMngCard = () => {
+const ServiceMngCard = (props) => {
+  console.log(props);
+  const [deleteClicked, setDeleteClicked] = useState(false);
+  const { description, imageURL, price, title, _id } = props.service;
   const classes = useStyles();
+  const deleteService = (props) => {
+    console.log(props)
+    let url = `https://fast-tor-66437.herokuapp.com/deleteService/${props}`;
+    console.log(url);
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        alert("Logo deleted Successfully!");
+      });
+    setDeleteClicked(true);
+  };
   return (
-    <Card
-      id="projectCard"
-      style={{ borderRadius: "10px", margin: "10px" }}
-      className={classes.root}
-    >
-      <CardMedia className={classes.media} image="" title="Mello" />
-      <CardActionArea>
-        <CardContent>
-          <div style={{ height: "120px" }}>
-            <Typography
-              style={{ color: "Skyblue" }}
-              gutterBottom
-              variant="h5"
-              component="h2"
-            >
-              Hellokajsfkl
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              kellokasjf;lka
-            </Typography>
-          </div>
-          <CardActions>
-          <Button
-              style={{
-                border: "1px solid red",
-                backgroundColor: "#EBC1BE",
-                color: "red",
-              }}
-              type="submit"
-            >
-              Delete
-            </Button>
-          </CardActions>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <div>
+      {deleteClicked ? (
+        <div style={{ display: "none" }}></div>
+      ) : (
+        <Card
+          id="projectCard"
+          style={{ borderRadius: "10px", margin: "10px" }}
+          className={classes.root}
+        >
+          <CardMedia className={classes.media} image={imageURL} title="Mello" />
+          <CardActionArea>
+            <CardContent>
+              <div style={{ height: "50px", textAlign: "center" }}>
+                <Typography style={{ color: "Skyblue", fontSize: "16px" }}>
+                  {title}
+                </Typography>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <Button
+                  onClick={() => deleteService(_id)}
+                  style={{
+                    border: "1px solid red",
+                    backgroundColor: "#EBC1BE",
+                    color: "red",
+                  }}
+                  type="submit"
+                >
+                  Delete
+                </Button>
+              </div>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      )}
+    </div>
   );
 };
 
 export default ServiceMngCard;
-
 
 // export default ServiceMngCard;

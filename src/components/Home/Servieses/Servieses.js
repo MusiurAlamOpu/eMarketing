@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import './ServiesCard.css';
 import { Button, CardActions } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { titleContext } from "../../../App";
 
 const useStyles = makeStyles({
   root: {
@@ -18,9 +19,12 @@ const useStyles = makeStyles({
   },
 });
 const Servieses = (props) => {
+  const [titleText, setTitleText] = useContext(titleContext);
   const classes = useStyles();
-  console.log(props.service);
   const {price, id, title, description, imageURL } = props.service;
+  const handleBookClick = (props) => {
+    setTitleText(props);
+  }
   return (
     <Card id="serviesCard" style={{borderRadius: '10px', margin: '2%', backgroundColor: '#f8fdff', border: 'none'}} className={classes.root}>
       <CardActionArea style={{backgroundColor: '#f8fdff', border: 'none'}}>
@@ -39,7 +43,7 @@ const Servieses = (props) => {
           {price}$
         </Button>
         <Button style={{backgroundColor: '#ffbc02', borderRadius: '5px',  marginLeft: '65px'}} size="small" color="primary">
-          <Link style={{color: 'black', fontWeight:'500', textDecoration: 'none'}} to="/customer">Book</Link>
+          <Link onClick={()=>handleBookClick({title: `${title}`, price: `${price}`})} style={{color: 'black', fontWeight:'500', textDecoration: 'none'}} to="/customer">Book</Link>
         </Button>
       </CardActions>
     </Card>

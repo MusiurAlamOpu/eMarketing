@@ -6,9 +6,7 @@ import { useForm } from "react-hook-form";
 const Review = () => {
   const { register, handleSubmit } = useForm();
   const [imageUrl, setImageUrl] = useState(null);
-
   const onSubmit = (data) => {
-    console.log(data.title, data.description, data.price, imageUrl);
     const imageInfo = {
       email: data.email,
       name: data.name,
@@ -17,10 +15,9 @@ const Review = () => {
       rating: data.rating,
     };
     axios
-      .post("http://localhost:5055/addReview", imageInfo)
+      .post("https://fast-tor-66437.herokuapp.com/addReview", imageInfo)
       .then(function (response) {
-        console.log(response);
-        alert("Logo Data added in Database Successfully! Please Submit Now");
+        alert("Database Updated Successfully! Please Submit Now");
       })
       .catch(function (error) {
         console.log(error);
@@ -41,7 +38,6 @@ const Review = () => {
         console.log(error);
       });
   };
-
   return (
     <div>
       <div style={{ padding: "5%" }}>
@@ -104,6 +100,7 @@ const Review = () => {
               onChange={onChangeHandle}
             ></input>
           </div>
+          
           <button type="submit" class="btn btn-primary">
             Submit
           </button>

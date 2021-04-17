@@ -9,7 +9,6 @@ const { register, handleSubmit } = useForm();
   const [imageUrl, setImageUrl] = useState(null);
   
   const onSubmit = (data) => {
-    console.log(data.title, data.description, data.price, imageUrl);
     const imageInfo = {
         title: data.title,
         imageURL: imageUrl,
@@ -17,9 +16,8 @@ const { register, handleSubmit } = useForm();
         price: data.price,
       };
     axios
-      .post("http://localhost:5055/addService", imageInfo)
+      .post("https://fast-tor-66437.herokuapp.com/addService", imageInfo)
       .then(function (response) {
-        console.log(response)
         alert("Logo Data added in Database Successfully! Please Submit Now");
       })
       .catch(function (error) {

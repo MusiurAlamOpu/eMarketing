@@ -1,20 +1,32 @@
 import { Button } from "@material-ui/core";
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import "../AddService/AddService.css";
 
 const MakeAdmin = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log("Clicked!");
-  };
   const inputStyle = {
     border: "2px solid grey",
     borderRadius: "6px",
     margin: "1%",
     color: "grey",
     width: "98%",
+  };
+  const onSubmit = (data) => {
+    const adminInfo = {
+      email: data.email,
+    };
+    axios
+      .post("https://fast-tor-66437.herokuapp.com/addAdmin", adminInfo)
+      .then(function (response) {
+        console.log(response);
+        alert("Logo Data added in Database Successfully! Please Submit Now");
+        // window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   return (
     <div
@@ -36,24 +48,24 @@ const MakeAdmin = () => {
         <h5>Make Admin</h5>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-          <div style={{ width: "100%", padding: "0% 2%" }}>
-            <label>Name</label>
-            <input
-              style={inputStyle}
-              name="email"
-              defaultValue="hello@hello.hello"
-              {...register("email")}
-            />
-            <Button
-              style={{
-                border: "1px solid green",
-                backgroundColor: "#BFE7CC",
-                color: "green",
-              }}
-              type="submit"
-            >
-              SUBMIT
-            </Button>
+        <div style={{ width: "100%", padding: "0% 2%" }}>
+          <label>Name</label>
+          <input
+            style={inputStyle}
+            name="email"
+            defaultValue="hello@hello.hello"
+            {...register("email")}
+          />
+          <Button
+            style={{
+              border: "1px solid green",
+              backgroundColor: "#BFE7CC",
+              color: "green",
+            }}
+            type="submit"
+          >
+            SUBMIT
+          </Button>
         </div>
       </form>
     </div>

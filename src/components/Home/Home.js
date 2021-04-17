@@ -17,7 +17,7 @@ const Home = () => {
   const [services, setServices] = useState([]);
   const [reviews, setReviews] = useState([]);
   useEffect(()=>{
-    fetch("http://localhost:5055/addService")
+    fetch("https://fast-tor-66437.herokuapp.com/addService")
     .then(res => res.json())
     .then(data => setServices(data))
     .catch(error => {
@@ -25,15 +25,13 @@ const Home = () => {
     })
   },[]);
   useEffect(()=>{
-    fetch("http://localhost:5055/addReview")
+    fetch("https://fast-tor-66437.herokuapp.com/addReview")
     .then(res => res.json())
     .then(data => setReviews(data))
     .catch(error => {
       console.log(error);
     })
   },[]);
-  // console.log(typeof(services));
-  // #e3f2fd lightblue
   return (
     <section id="body">
       <main>

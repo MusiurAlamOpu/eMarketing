@@ -1,5 +1,6 @@
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
+import BookingList from "../Customer/BookingList/BookingList";
 import AddService from "./AddService/AddService";
 import "./Admin.css";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
@@ -17,7 +18,7 @@ const Admin = () => {
 //       textAlign: 'center'
 //   };
   const switchWorkplace = (props) => {
-      console.log(props);
+      // console.log(props);
       if(props === "orderList"){
           setSwitchState({
             orderList: true,
@@ -77,7 +78,7 @@ const Admin = () => {
         </div>
       </div>
       <div id="workplace">
-        {orderList && <OrderList />}
+        {orderList && <BookingList />}
         {addService && <AddService />}
         {makeAdmin && <MakeAdmin />}
         {manageService && <ManageService />}

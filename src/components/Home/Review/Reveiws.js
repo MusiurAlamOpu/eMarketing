@@ -14,7 +14,6 @@ const useStyles = makeStyles({
 });
 const Reveiws = (props) => {
   const classes = useStyles();
-  console.log(props.user);
   const {name, reviewText, imageURL, rating, email} = props.review;
   return (
     <Card

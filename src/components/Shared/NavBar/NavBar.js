@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
@@ -7,8 +7,8 @@ import { UserContext } from "../../../App";
 
 const NavBar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  const { isLoggedIn, name, imageUrl } = loggedInUser;
-  console.log(isLoggedIn, name, imageUrl);
+  const { isLoggedIn, name, imageUrl, isAdmin, email, isUser} = loggedInUser;
+  console.log(email, isAdmin, isUser);
   const linkStyle = {
     textDecoration: "none",
     color: "#3aafd0",
@@ -48,9 +48,16 @@ const NavBar = () => {
             <Link style={linkStyle} to="/contact">
               Contact
             </Link>
-            <Link style={linkStyle} to="/admin">
+            {
+              isUser && <Link style={linkStyle} to="/customer">
+              Client-board
+            </Link>
+            }
+            {
+              isAdmin && <Link style={linkStyle} to="/admin">
               Admin
             </Link>
+            }
           </Nav>
           <Nav>
             {isLoggedIn && (

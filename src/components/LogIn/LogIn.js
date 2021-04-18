@@ -43,11 +43,12 @@ const LogIn = () => {
           imageUrl: photoURL,
           email: email,
           isAdmin: false,
-          isUser: true
+          isUser: false
         };
         if(email === adminArray[0] || email === adminArray[1]){
           userInfo.isAdmin = true;
-          userInfo.isUser = false;
+        }else{
+          userInfo.isUser = true;
         }
         setLoggedInUser(userInfo);
         history.replace(from);

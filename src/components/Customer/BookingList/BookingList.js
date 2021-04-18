@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BookingListCard from "./BookingListCard/BookingListCard";
+import bookinglist from './bookingList.json';
 
 const BookingList = () => {
   const [bookings, setBookings] = useState([]);
@@ -8,6 +9,7 @@ const BookingList = () => {
       .then((res) => res.json())
       .then((data) => setBookings(data))
       .catch((error) => {
+        setBookings(bookinglist);
         console.log(error.message);
       });
   }, []);

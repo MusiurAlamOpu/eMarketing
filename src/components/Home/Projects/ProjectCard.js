@@ -21,7 +21,7 @@ const ProjectCard = (props) => {
   const { id, title, header, imageUrl, progress } = props.project;
   return (
     <Card
-        id="projectCard"
+      id="projectCard"
       style={{ borderRadius: "10px", margin: "10px" }}
       className={classes.root}
     >

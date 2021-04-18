@@ -84,7 +84,7 @@ const Home = () => {
                     color: 'white',
                     textDecoration: 'none',
                     fontWeight: '300'
-                    }} href="/logIn">GET STARTED</a>
+                    }} href="#services">GET STARTED</a>
               </Button>
               <Button
                 style={{
@@ -94,8 +94,12 @@ const Home = () => {
                 }}
                 variant="contained"
                 color="default"
-              >
-                LEARN MORE
+              ><Link style={{
+                color: 'blue',
+                textDecoration: 'none',
+                fontWeight: '300'
+                }} to="/about-us">LEARN MORE</Link>
+                
               </Button>
             </div>
             <div
@@ -111,7 +115,7 @@ const Home = () => {
           </div>
         </section>
         {/* servies */}
-        <section className="container">
+        <section id="services" className="container">
           <div id="sectionSectionDiv">
             <div
               className="serviesDivs"

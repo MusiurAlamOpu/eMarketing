@@ -8,6 +8,7 @@ import Contact from "./components/Contact/Contact";
 import Customer from "./components/Customer/Customer";
 import Home from "./components/Home/Home";
 import LogIn from "./components/LogIn/LogIn";
+import NotFound from "./components/NOTFOUND/NotFound";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import NavBar from "./components/Shared/NavBar/NavBar";
 
@@ -51,14 +52,11 @@ function App() {
               <PrivateRoute path="/customer">
                 <Customer />
               </PrivateRoute>
-              {/* <Route path="/admin">
-                <Admin />
-              </Route>
-              <Route path="/customer">
-                <Customer />
-              </Route> */}
               <Route path="/logIn">
                 <LogIn />
+              </Route>
+              <Route to="*">
+                <NotFound/>
               </Route>
             </Switch>
           </Router>

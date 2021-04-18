@@ -18,7 +18,7 @@ const { register, handleSubmit } = useForm();
     axios
       .post("https://fast-tor-66437.herokuapp.com/addService", imageInfo)
       .then(function (response) {
-        alert("Logo Data added in Database Successfully! Please Submit Now");
+        alert("Service added Successfully! Please visit homepage.");
       })
       .catch(function (error) {
         console.log(error);
@@ -33,7 +33,7 @@ const { register, handleSubmit } = useForm();
       .post("https://api.imgbb.com/1/upload", imageData)
       .then(function (response) {
         setImageUrl(response.data.data.display_url);
-        alert("Logo Data added in Database Successfully! Please Submit Now");
+        alert("Data added in Database Successfully! Please submit now.");
       })
       .catch(function (error) {
         console.log(error);

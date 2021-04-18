@@ -85,7 +85,7 @@ const Book = () => {
           }
           {titleText.title === "" && (
             <select
-              class="form-select"
+              class="form-control"
               aria-label="Default select example"
               name="service"
               {...register("service")}

@@ -21,8 +21,7 @@ const MakeAdmin = () => {
       .post("https://fast-tor-66437.herokuapp.com/addAdmin", adminInfo)
       .then(function (response) {
         console.log(response);
-        alert("Logo Data added in Database Successfully! Please Submit Now");
-        // window.location.reload();
+        alert("Admin info added Successfully!");
       })
       .catch(function (error) {
         console.log(error);

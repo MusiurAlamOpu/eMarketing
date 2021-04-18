@@ -43,7 +43,7 @@ const NavBar = () => {
               Home
             </Link>
             <Link style={linkStyle} to="/about-us">
-              About Us
+              About
             </Link>
             <Link style={linkStyle} to="/contact">
               Contact
@@ -76,7 +76,14 @@ const NavBar = () => {
               </div>
             )}
             { !isLoggedIn && (
-              <Link style={linkStyle} to="/logIn">
+              <Link style={{
+                color: 'white',
+                backgroundColor: '#3F51B5',
+                padding: '3px 10px',
+                borderRadius: '5px',
+                fontWeight: '800',
+                textDecoration: 'none'
+                }} to="/logIn">
                 Log In
               </Link>
             )}

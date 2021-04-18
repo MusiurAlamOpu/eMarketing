@@ -32,7 +32,7 @@ const Review = () => {
       .post("https://api.imgbb.com/1/upload", imageData)
       .then(function (response) {
         setImageUrl(response.data.data.display_url);
-        alert("Logo Data added in Database Successfully! Please Submit Now");
+        alert("Review added Successfully! Please visit homepage");
       })
       .catch(function (error) {
         console.log(error);

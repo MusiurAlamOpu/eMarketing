@@ -5,6 +5,7 @@ import "firebase/auth";
 import firebaseConfig from "../../firebase.config";
 import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router";
+import logInImage from './login.jpg';
 
 const LogIn = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -45,11 +46,12 @@ const LogIn = () => {
           isAdmin: false,
           isUser: false
         };
-        if(email === adminArray[0] || email === adminArray[1]){
+        if(email === adminArray[0] || email === adminArray[1] || email === adminArray[2] || email === adminArray[3] || email === adminArray[4] || email === adminArray[5]){
           userInfo.isAdmin = true;
         }else{
           userInfo.isUser = true;
         }
+        
         setLoggedInUser(userInfo);
         history.replace(from);
       })
@@ -59,7 +61,10 @@ const LogIn = () => {
   };
   return (
     <div style={{textAlign: 'center'}}>
-      <Button style={{margin: '5%', fontWeight: '600', border: '1px solid skyblue', color: 'skyblue'}} onClick={handleLogInButton}>Log In</Button>
+      <Button style={{margin: '5%', fontWeight: '600', border: '1px solid skyblue', color: 'white',
+    width: '75%', backgroundColor: '#3F51B5'}} onClick={handleLogInButton}>Continue with Google</Button>
+    <br/>
+      <img style={{width: '70%'}} src={logInImage} alt=""></img>
     </div>
   );
 };

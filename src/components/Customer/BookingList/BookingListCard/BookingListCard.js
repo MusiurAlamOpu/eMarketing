@@ -5,8 +5,10 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { Button, Select } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { UserContext } from "../../../../App";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles({
   root: {
@@ -90,9 +92,9 @@ const BookingListCard = (props) => {
   // email === props.booking.email
   console.log(email);
   console.log(props.booking.email);
-  if(email === props.booking.email){
+  if (email === props.booking.email) {
     console.log("Matched");
-  }else{
+  } else {
     console.log("MisMatched");
   }
   return (
@@ -129,14 +131,14 @@ const BookingListCard = (props) => {
                     </Typography>
                   </div>
                 </CardContent>
-                <div>
+                <div sytle={{textAlign: 'center'}}>
                   <select
                     disabled={!isAdmin}
-                    class="form-select"
+                    class="form-control"
                     onChange={handleStatus}
                     name="status"
                     value={selectedValue}
-                    style={{ margin: "5px 0px" }}
+                    style={{ margin: "3%", width: '90%' }}
                   >
                     <option>Done</option>
                     <option>Pending</option>
@@ -150,7 +152,8 @@ const BookingListCard = (props) => {
                     color="secondary"
                     onClick={() => deleteBooking(_id)}
                   >
-                    DELETE
+                    <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
+                    &nbsp;DELETE
                   </Button>
                 </div>
               </CardActionArea>
@@ -161,7 +164,6 @@ const BookingListCard = (props) => {
       {isUser && (
         <div>
           {email === props.booking.email ? (
-            
             <div>
               {deleteClicked ? (
                 <div sytle={{ display: "none" }}></div>
@@ -193,14 +195,14 @@ const BookingListCard = (props) => {
                         </Typography>
                       </div>
                     </CardContent>
-                    <div>
+                    <div style={{textAlign: 'center'}}>
                       <select
                         disabled={!isAdmin}
-                        class="form-select"
+                        class="form-control"
                         onChange={handleStatus}
                         name="status"
                         value={selectedValue}
-                        style={{ margin: "5px 0px" }}
+                        style={{ margin: "5%", widht: '90%' }}
                       >
                         <option>Done</option>
                         <option>Pending</option>
@@ -208,13 +210,14 @@ const BookingListCard = (props) => {
                         <option>Paused</option>
                       </select>
                     </div>
-                    <div style={{ margin: "5px 0px" }}>
+                    <div style={{ margin: "5px 0px"  }}>
                       <Button
                         variant="contained"
                         color="secondary"
                         onClick={() => deleteBooking(_id)}
                       >
-                        DELETE
+                        <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
+                        &nbsp;DELETE
                       </Button>
                     </div>
                   </CardActionArea>

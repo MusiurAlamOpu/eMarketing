@@ -58,15 +58,12 @@ const AboutUs = () => {
       <a style={linkStyle} href="https://emarketing-c2023.web.app/">
         Live Site
       </a>
-      <a
-        style={linkStyle}
-        href="https://github.com/Porgramming-Hero-web-course/complete-website-client-MusiurAlamOpu"
-      >
+      <a style={linkStyle} href="https://github.com/MusiurAlamOpu/eMarketing">
         Client Site GIT{" "}
       </a>
       <a
         style={linkStyle}
-        href="https://github.com/Porgramming-Hero-web-course/complete-website-server-MusiurAlamOpu"
+        href="https://github.com/MusiurAlamOpu/eMarketingServer.git"
       >
         Server Site GIT
       </a>

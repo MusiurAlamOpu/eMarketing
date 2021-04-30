@@ -34,13 +34,13 @@ const Home = () => {
         console.log(error);
       });
   }, []);
-  const linkStyle = {
-    textDecoration: "none",
-    color: "#3aafd0",
-    fontSize: "16px",
-    margin: "0px 20px",
-    fontWeight: "700",
-  };
+  // const linkStyle = {
+  //   textDecoration: "none",
+  //   color: "#3aafd0",
+  //   fontSize: "16px",
+  //   margin: "0px 20px",
+  //   fontWeight: "700",
+  // };
   return (
     <section id="body">
       <main>
@@ -80,11 +80,16 @@ const Home = () => {
                 variant="contained"
                 color="primary"
               >
-                <a style={{
-                    color: 'white',
-                    textDecoration: 'none',
-                    fontWeight: '300'
-                    }} href="#services">GET STARTED</a>
+                <a
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontWeight: "300",
+                  }}
+                  href="#services"
+                >
+                  GET STARTED
+                </a>
               </Button>
               <Button
                 style={{
@@ -94,12 +99,17 @@ const Home = () => {
                 }}
                 variant="contained"
                 color="default"
-              ><Link style={{
-                color: 'blue',
-                textDecoration: 'none',
-                fontWeight: '300'
-                }} to="/about-us">LEARN MORE</Link>
-                
+              >
+                <Link
+                  style={{
+                    color: "blue",
+                    textDecoration: "none",
+                    fontWeight: "300",
+                  }}
+                  to="/about-us"
+                >
+                  LEARN MORE
+                </Link>
               </Button>
             </div>
             <div
@@ -156,30 +166,28 @@ const Home = () => {
           </div>
         </section>
         {/* HowWeDo */}
-        <section class="container" style={{textAlign:'center'}}>
-        <small style={{ color: "grey" }}>Workflow</small>
-            <h2
-              style={{
-                fontSize: "40px",
-                fontWeight: "600px",
-                fontFamily: "roboto",
-              }}
-            >
-              How We Do It
-            </h2>
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-          {
-            fakeData1.map(card => {
-              return (
-                <HowWeDoCard card={card}></HowWeDoCard>
-              )
-            })
-          }
+        <section class="container" style={{ textAlign: "center" }}>
+          <small style={{ color: "grey" }}>Workflow</small>
+          <h2
+            style={{
+              fontSize: "40px",
+              fontWeight: "600px",
+              fontFamily: "roboto",
+            }}
+          >
+            How We Do It
+          </h2>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {fakeData1.map((card) => {
+              return <HowWeDoCard card={card}></HowWeDoCard>;
+            })}
           </div>
         </section>
         {/* projects 3 */}
